@@ -8,11 +8,7 @@ const online = useOnline()
 
 <template>
   <div>
-    <Logos mb-6 />
-    <PageView v-if="online" />
-    <div v-else text-gray:80>
-      You're offline
-    </div>
-    <InputEntry />
+    <h1 class="text-2xl">Hello World</h1>
+    <NuxtWelcome />
   </div>
 </template>

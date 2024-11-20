@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxtjs/i18n',
     '@nuxtjs/google-fonts',
+    '@unocss/nuxt',
   ],
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
@@ -47,24 +48,33 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   icon: {
     serverBundle: {
       collections: ['mingcute']
     },
   },
+
+  /** @see https://i18n.nuxtjs.org/docs/api/options */
   i18n: {
     locales: [
       { name: 'English', code: 'en', language: 'en-US' },
       { name: 'Indonesia', code: 'id', language: 'id-ID' }
     ],
     defaultLocale: 'id',
+    strategy: 'no_prefix'
   },
+
+  /** @see https://google-fonts.nuxtjs.org/getting-started/options */
   googleFonts: {
     families: {
       Manrope: [400, 500, 600, 700],
     },
-    prefetch: true,
-    preconnect: true,
   },
+
+  css: [
+    '@unocss/reset/tailwind.css',
+  ],
+
   pwa,
 })
