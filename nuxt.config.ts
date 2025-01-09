@@ -1,8 +1,13 @@
 import { pwa } from './app/config/pwa'
 import { appDescription } from './app/constants/index';
+import Aura from '@primevue/themes/aura';
+import Lara from '@primevue/themes/lara'
+import Material from '@primevue/themes/material'
+import Nora from '@primevue/themes/nora'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   compatibilityDate: '2024-04-03',
   future: {
     compatibilityVersion: 4,
@@ -15,8 +20,10 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxtjs/i18n',
     '@nuxtjs/google-fonts',
-    '@unocss/nuxt',
+    '@primevue/nuxt-module',
+    '@nuxt/eslint',
   ],
+
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
     // but missing on offline, disabling extraction it until fixed
@@ -49,9 +56,21 @@ export default defineNuxtConfig({
     },
   },
 
-  icon: {
-    serverBundle: {
-      collections: ['mingcute']
+  primevue: {
+    options: {
+        theme: {
+            preset: Material,
+            options: {
+              darkModeSelector: 'dark',
+          }
+        }
+    }
+},
+  css: ['primeicons/primeicons.css', './assets/css/main.css'],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
     },
   },
 
@@ -72,9 +91,14 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [
-    '@unocss/reset/tailwind.css',
-  ],
+  eslint: {
+    config: {
+      standalone: false,
+      nuxt: {
+        sortConfigKeys: true,
+      },
+    },
+  },
 
   pwa,
 })
