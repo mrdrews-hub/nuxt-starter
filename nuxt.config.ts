@@ -1,18 +1,10 @@
-import { pwa } from './app/config/pwa'
-import { appDescription } from './app/constants/index';
-import Aura from '@primevue/themes/aura';
 import Lara from '@primevue/themes/lara'
-import Material from '@primevue/themes/material'
-import Nora from '@primevue/themes/nora'
+import { pwa } from './app/config/pwa'
+import { appDescription } from './app/constants/index'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: false,
-  compatibilityDate: '2024-04-03',
-  future: {
-    compatibilityVersion: 4,
-  },
-  devtools: { enabled: true },
+
   modules: [
     '@pinia/nuxt',
     '@vite-pwa/nuxt',
@@ -23,21 +15,8 @@ export default defineNuxtConfig({
     '@primevue/nuxt-module',
     '@nuxt/eslint',
   ],
-
-  experimental: {
-    // when using generate, payload js assets included in sw precache manifest
-    // but missing on offline, disabling extraction it until fixed
-    payloadExtraction: false,
-    renderJsonPayloads: true,
-    typedPages: true,
-  },
-  nitro: {
-    esbuild: {
-      options: {
-        target: 'esnext',
-      },
-    },
-  },
+  ssr: false,
+  devtools: { enabled: true },
   app: {
     head: {
       viewport: 'width=device-width,initial-scale=1',
@@ -55,18 +34,26 @@ export default defineNuxtConfig({
       ],
     },
   },
-
-  primevue: {
-    options: {
-        theme: {
-            preset: Material,
-            options: {
-              darkModeSelector: 'dark',
-          }
-        }
-    }
-},
   css: ['primeicons/primeicons.css', './assets/css/main.css'],
+  future: {
+    compatibilityVersion: 4,
+  },
+
+  experimental: {
+    // when using generate, payload js assets included in sw precache manifest
+    // but missing on offline, disabling extraction it until fixed
+    payloadExtraction: false,
+    renderJsonPayloads: true,
+    typedPages: true,
+  },
+  compatibilityDate: '2024-04-03',
+  nitro: {
+    esbuild: {
+      options: {
+        target: 'esnext',
+      },
+    },
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -74,14 +61,13 @@ export default defineNuxtConfig({
     },
   },
 
-  /** @see https://i18n.nuxtjs.org/docs/api/options */
-  i18n: {
-    locales: [
-      { name: 'English', code: 'en', language: 'en-US' },
-      { name: 'Indonesia', code: 'id', language: 'id-ID' }
-    ],
-    defaultLocale: 'id',
-    strategy: 'no_prefix'
+  eslint: {
+    config: {
+      standalone: false,
+      nuxt: {
+        sortConfigKeys: true,
+      },
+    },
   },
 
   /** @see https://google-fonts.nuxtjs.org/getting-started/options */
@@ -91,11 +77,23 @@ export default defineNuxtConfig({
     },
   },
 
-  eslint: {
-    config: {
-      standalone: false,
-      nuxt: {
-        sortConfigKeys: true,
+  /** @see https://i18n.nuxtjs.org/docs/api/options */
+  i18n: {
+    locales: [
+      { name: 'English', code: 'en', language: 'en-US' },
+      { name: 'Indonesia', code: 'id', language: 'id-ID' },
+    ],
+    defaultLocale: 'id',
+    strategy: 'no_prefix',
+  },
+
+  primevue: {
+    options: {
+      theme: {
+        preset: Lara,
+        options: {
+          darkModeSelector: 'dark',
+        },
       },
     },
   },

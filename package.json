@@ -1,31 +1,30 @@
 {
   "name": "nuxt-app",
-  "private": true,
   "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.12.3+sha1.4fb96925d434c491285182acf29803bb9aa2e6e5",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/i18n": "^9.1.0",
+    "@nuxtjs/i18n": "9.0.0-rc.2",
     "@pinia/nuxt": "^0.7.0",
     "@primevue/themes": "^4.2.5",
     "@vite-pwa/nuxt": "^0.10.6",
-    "nuxt": "^3.14.159",
+    "nuxt": "^3.15.1",
     "primeicons": "^7.0.0",
     "primevue": "^4.2.5",
     "tailwindcss-primeui": "^0.3.4",
     "vue": "latest",
     "vue-router": "latest"
   },
-  "overrides": {
-    "vue": "latest"
-  },
-  "packageManager": "pnpm@9.12.3+sha1.4fb96925d434c491285182acf29803bb9aa2e6e5",
   "devDependencies": {
     "@antfu/eslint-config": "^3.8.0",
     "@iconify-json/mingcute": "^1.2.1",
@@ -35,7 +34,12 @@
     "@vueuse/core": "^11.2.0",
     "@vueuse/nuxt": "^11.2.0",
     "autoprefixer": "^10.4.20",
+    "eslint": "^9.13.0",
+    "eslint-plugin-format": "^0.1.2",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }
