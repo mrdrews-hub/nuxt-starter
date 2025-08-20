@@ -1,7 +1,5 @@
 <template>
-  <div class="bg-gray-50">
-    <div class="relative w-screen h-screen">
-      <slot />
-    </div>
+  <div class="flex items-center justify-center min-h-dvh bg-surface-100 dark:bg-surface-900">
+    <slot />
   </div>
 </template>

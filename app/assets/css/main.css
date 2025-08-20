@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
+@custom-variant dark (&:where(.dracula, .dracula *));
+
+* {
+  font-family: "Sansation", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal
+}
+.p-icon {
+  @apply mt-1
+}
+.p-toast-message-text {
+  @apply !p-0
+}
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}

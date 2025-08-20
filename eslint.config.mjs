@@ -9,6 +9,10 @@ export default nuxt(
       stylistic: true,
       rules: {
         'style/eol-last': 'off',
+        'no-console': 'warn',
+        'unused-imports/no-unused-imports': 'warn',
+        'unused-imports/no-unused-vars': 'warn',
+        'unicorn/throw-new-error': 'off',
       },
     },
   ),

@@ -1,2 +1,2 @@
-export const appName = 'Nuxt Starter Template'
+export const appName = 'PrimeLands'
 export const appDescription = 'Nuxt Starter Template'
