@@ -66,7 +66,6 @@ const handleLogin = handleSubmit(async (values, { resetForm }) => {
           </div>
           <span class="text-muted-color font-medium">Sign in to continue</span>
         </div>
-
         <form class="flex flex-col gap-5" @submit.prevent="handleLogin">
           <Field v-slot="{ field, errorMessage }" as="div" name="email">
             <FormFieldWrapper id="email" label="Email" :error="errorMessage">
@@ -89,7 +88,7 @@ const handleLogin = handleSubmit(async (values, { resetForm }) => {
               Forgot password?
             </NuxtLink>
           </div>
-          <Button type="submit" label="Sign In" class="w-full mt-8" :loading="loading" />
+          <Button type="submit" :label="$t('auth.login.title')" class="w-full mt-8" :loading="loading" />
         </form>
         <p class="text-surface-900 text-sm font-medium dark:text-surface-0 mt-5">
           Didn't have account ? <NuxtLink class="text-primary" to="/register">

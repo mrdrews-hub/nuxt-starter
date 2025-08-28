@@ -36,11 +36,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative">
-    <h2 class="text-2xl font-bold mb-5">
-      Products
-    </h2>
-    <div id="filter" class="flex justify-between mb-4">
+  <div class="relative grid gap-5">
+    <PageTitle title="Products" />
+    <div id="filter" class="flex justify-between">
       <IconField>
         <InputIcon>
           <Icon name="mingcute:search-3-line" />
@@ -53,7 +51,7 @@ onMounted(() => {
         </template>
       </DatePicker>
     </div>
-    <DataTable v-model:selection="selectedProducts" :value="products" table-style="min-width: 50rem" paginator :rows="10" :rows-per-page-options="[5, 10, 20, 50]">
+    <DataTable v-model:selection="selectedProducts" table-class="!bg-red-500" :value="products" table-style="min-width: 50rem" paginator :rows="10" :rows-per-page-options="[5, 10, 20, 50]">
       <Column selection-mode="multiple" header-style="width: 3rem" />
       <Column field="name" header="Name">
         <template #body="slotProps">

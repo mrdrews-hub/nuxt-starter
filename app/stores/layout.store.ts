@@ -17,8 +17,5 @@ export const useLayoutStore = defineStore('layoutStore', () => {
 
   return { layoutConfig, isDarkmode, triggerDarkMode, toggleDarkMode }
 }, {
-  persist: {
-    storage: localStorage,
-    pick: ['layoutConfig'],
-  },
+  persist: piniaPluginPersistedstate.localStorage(),
 })

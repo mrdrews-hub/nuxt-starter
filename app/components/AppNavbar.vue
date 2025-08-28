@@ -38,12 +38,15 @@ function toggle(event: any) {
 </script>
 
 <template>
-  <header class="flex items-center justify-between p-4 shrink-0 bg-conic-120 bg-surface-0 dark:bg-surface-900 border-b border-b-surface-200 dark:border-b-surface-700">
-    <div class="flex items-center gap-2">
-      <NuxtImg src="/logo.png" alt="logo" width="40" height="40" />
-      <p class="text-3xl font-extrabold">
+  <header class="flex items-center justify-between px-4 py-2 shrink-0 bg-conic-120 bg-surface-0 dark:bg-surface-900 border-b border-b-surface-200 dark:border-b-surface-700">
+    <div class="flex items-center gap-1">
+      <Icon name="mingcute:android-2-fill" class="text-primary dark:text-surface-100" size="50" />
+      <p class="text-2xl font-extrabold">
         PrimeLand
       </p>
+      <Button type="button" variant="text" class="ml-8" size="small">
+        <Icon name="mingcute:menu-fill" class="text-primary dark:text-surface-100" size="25" />
+      </Button>
     </div>
     <div class="flex items-center gap-2">
       <Button variant="text" size="small" @click="toggleDarkMode">
@@ -70,7 +73,6 @@ function toggle(event: any) {
             <Icon v-if="item.icon" :name="item.icon" />
             <span class="font-medium text-left">{{ item.label }}</span>
             <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
-            <!-- <span v-if="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span> -->
           </Button>
         </template>
       </Menu>

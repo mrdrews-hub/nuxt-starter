@@ -1,4 +1,5 @@
-import { z, ZodError } from 'zod'
+import { consola } from 'consola'
+import { z } from 'zod'
 import { HTTP_STATUS } from '~~/server/utils/http-status'
 import { HttpSendError, HttpSendSuccess } from '~~/server/utils/response'
 
@@ -17,7 +18,7 @@ export default defineEventHandler(async (event) => {
       })))
     }
 
-    if (data?.email === 'admin@admin.com' && data.password === 'admin.com') {
+    if (data?.email === 'admin@admin.com' && data?.password === 'admin.com') {
       const id = crypto.randomUUID()
       // set the user session in the cookie
       // this server util is auto-imported by the auth-utils module
@@ -32,6 +33,7 @@ export default defineEventHandler(async (event) => {
     return HttpSendError(event, HTTP_STATUS.BAD_REQUEST, 'Invalid Credential')
   }
   catch (error: any) {
+    consola.error(error)
     return HttpSendError(event, HTTP_STATUS.INTERNAL_SERVER_ERROR)
   }
 })

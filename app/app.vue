@@ -15,9 +15,6 @@ onMounted(() => {
     document.documentElement.classList.add('dracula')
   }
 })
-watch(route, () => {
-  console.log(route)
-})
 
 const toasticon = {
   success: 'mingcute:check-circle-fill',

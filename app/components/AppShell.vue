@@ -7,7 +7,7 @@ import { ref } from 'vue'
     <slot name="banner" />
     <AppNavbar />
     <div class="flex">
-      <AppSidebar class="w-[300px]" />
+      <AppSidebar class="w-[270px]" />
       <div id="content" class="basis-full px-10 py-8">
         <slot />
       </div>

@@ -38,6 +38,7 @@ const selectedPeriod = ref('Monthly')
 
 <template>
   <main class="grid gap-5">
+    <PageTitle title="Dashboard" />
     <section class="flex items-center justify-between">
       <SelectButton v-model="selectedPeriod" :options="periodOptions" size="small" />
       <Button type="button" icon="mingcute:download-2-line" label="Download" size="small" icon-pos="right">

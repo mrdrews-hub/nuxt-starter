@@ -1,5 +1,6 @@
 import type { H3Event } from 'h3'
 import type { HttpStatusCode } from './http-status'
+import { consola } from 'consola'
 import { setResponseStatus } from 'h3'
 import { HTTP_STATUS } from './http-status'
 

@@ -30,7 +30,7 @@ const navbarMenu = computed(() => [
 </script>
 
 <template>
-  <aside class="flex flex-col min-h-screen overflow-y-auto bg-surface-0 dark:bg-surface-900 border-r border-surface-300 dark:border-r-surface-800">
+  <aside class="flex flex-col min-h-screen overflow-y-auto bg-surface-100 dark:bg-surface-950 border-r border-surface-200 dark:border-surface-900">
     <div class="overflow-y-auto">
       <ul class="list-none p-2 m-0 overflow-hidden">
         <li v-for="(item, index) in navbarMenu" :key="index">
@@ -41,7 +41,7 @@ const navbarMenu = computed(() => [
             :class="item.isActive ? 'bg-highlight' : 'hover:bg-primary/10'"
           >
             <Icon :name="item.icon" />
-            <span class="font-medium">{{ item.name }}</span>
+            <span class="font-medium text-sm">{{ item.name }}</span>
           </NuxtLink>
         </li>
       </ul>
